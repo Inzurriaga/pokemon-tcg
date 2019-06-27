@@ -1,12 +1,13 @@
 import React, { Component } from "react";
-import Header from "../header/Header"
+import Header from "../header/Header";
+import CardContainer from "../cardContainer/CardContainer"
 
 export class Home extends Component {
   render() {
     return(
       <section>
-        <h1>hello world im the home</h1>
         <Header />
+        <CardContainer />
       </section>
     )
   }
