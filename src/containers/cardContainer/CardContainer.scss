@@ -1,20 +1,28 @@
 .cardsContainer {
   display: flex;
   flex-wrap: wrap;
+  padding: 0 20px 0 20px;
+  height: 80%;
   justify-content: space-around;
   .cards-link {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 350px;
-    height: 450px;
+    width: 300px;
+    height: 420px;
     img {
-      width: 300px;
-      border-radius: 5px;
+      width: 280px;
+      border-radius: 10px;
       transition: 0.2s;
-      &:hover {
+    }
+    &:hover {
+      img {
         transform: scale(1.1)
       }
     }
   }
+}
+
+.card-info-display {
+  overflow-y: hidden;
 }

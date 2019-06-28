@@ -7,7 +7,7 @@ export class CardContianer extends Component {
   renderPokemonCards = () => {
     return this.props.pokemonCards.cards.map(card => {
       return(
-        <NavLink key={card.id} className="cards-link">
+        <NavLink to={`/pokemon/${card.id}`} key={card.id} className="cards-link">
           <img src={card.imageUrlHiRes} alt="cards"/>
         </NavLink>
       )
@@ -17,6 +17,7 @@ export class CardContianer extends Component {
   render() {
     const { cards } = this.props.pokemonCards
     let display;
+    let css;
     if( cards === "Home" ){
       display = (
         <h1>hello im home</h1>
@@ -28,8 +29,13 @@ export class CardContianer extends Component {
     }else{
       display = this.renderPokemonCards();
     }
+    if(this.props.cardInfoDisplay) {
+      css = "card-info-display"
+    }else {
+      css = ""
+    }
     return(
-      <section className="cardsContainer">
+      <section className={`cardsContainer ${css}`}>
         {
           display
         }
@@ -39,7 +45,8 @@ export class CardContianer extends Component {
 }
 
 const mapStatetoProps = (state) => ({
-  pokemonCards: state.pokemonCards
+  pokemonCards: state.pokemonCards,
+  cardInfoDisplay: state.cardInfoDisplay
 })
 
 export default connect(mapStatetoProps)(CardContianer);

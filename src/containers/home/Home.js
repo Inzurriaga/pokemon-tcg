@@ -5,7 +5,7 @@ import CardContainer from "../cardContainer/CardContainer"
 export class Home extends Component {
   render() {
     return(
-      <section>
+      <section className="home">
         <Header />
         <CardContainer />
       </section>
