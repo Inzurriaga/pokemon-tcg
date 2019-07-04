@@ -1,15 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { NavLink } from "react-router-dom"
+import Card from "../card/Card"
 
 export class CardContianer extends Component {
 
   renderPokemonCards = () => {
     return this.props.pokemonCards.cards.map(card => {
       return(
-        <NavLink to={`/pokemon/${card.id}`} key={card.id} className="cards-link">
-          <img src={card.imageUrlHiRes} alt="cards"/>
-        </NavLink>
+        <Card key={card.id} card={card} />
       )
     })
   }
@@ -35,7 +33,7 @@ export class CardContianer extends Component {
       css = ""
     }
     return(
-      <section className={`cardsContainer ${css}`}>
+      <section style={{top: `${window.scrollY}px`}} className={`cardsContainer ${css}`}>
         {
           display
         }

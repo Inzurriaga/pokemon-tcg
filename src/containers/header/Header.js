@@ -25,7 +25,6 @@ export class Header extends Component {
   render() {
     return(
       <header>
-          <h1>hello</h1>
           <input value={this.state.userInput} onChange={this.updateUserInput}></input>
           <button onClick={this.fetchUserInput}></button>
       </header>

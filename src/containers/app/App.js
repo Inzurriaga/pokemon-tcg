@@ -9,9 +9,15 @@ export class App extends Component {
   render() {
     return (
       <div className="App">
-        <Route path="/" component={ Home } />
-        <Route exact path="/pokemon/:id" render={({ match }) => {
-            const pokemon = this.props.pokemonCards.cards.find(pokemon => pokemon.id === match.params.id)
+        <Route  path="/" component={ Home } />
+        <Route  path="/pokemon/:id" render={({ match }) => {
+          let pokemon;
+            if(this.props.pokemonCards.cards !== "Home"){
+              pokemon = this.props.pokemonCards.cards.find(pokemon => pokemon.id === match.params.id);
+            } else {
+              console.log("hello im not found")
+              pokemon = match.params.id;
+            }
             return (<CardInfo pokemon={pokemon} />)
         }} />
       </div>

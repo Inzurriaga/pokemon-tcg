@@ -24,5 +24,7 @@
 }
 
 .card-info-display {
-  overflow-y: hidden;
+  box-sizing: border-box;
+  overflow: hidden;
+ top: 100px;
 }
