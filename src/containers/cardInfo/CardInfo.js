@@ -6,57 +6,69 @@ export class CardInfo extends Component {
   constructor(){
     super();
     this.state = {
-      pokemon: {}
+      pokemon: {attacks: []},
+      transitionAnimation: false
     }
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     const { pokemon } = this.props
     this.props.cardInfoDisplay(true)
     if(typeof pokemon !== "string"){
       this.setState({
-        pokemon
+        pokemon,
+        transitionAnimation: true
       });
     } else {
-      console.log("hello im in the card info")
-      this.fetchPokemon(pokemon);
+      await this.fetchPokemon(pokemon);
     }
   }
 
   fetchPokemon = async (id) => {
-    console.log(id)
     const response = await fetch(`https://api.pokemontcg.io/v1/cards/${id}`);
     const pokemon = await response.json();
-    console.log(pokemon)
     this.setState({
       pokemon: pokemon.card
     })
   }
 
   render() {
-    console.log(this.props.pokemon)
+    console.log(this.state.pokemon)
+    const { pokemon, transitionAnimation} = this.state
+    const transitionType = transitionAnimation ? "transition-to-card" : "load-to-card "
     return(
       <section className="card-info">
-        <div className="top"></div>
-        <section className="left">
-          <h2>{this.state.pokemon.name}</h2>
-          <img src={this.state.pokemon.imageUrlHiRes}  alt="card"/>
+        <div className={`top ${transitionType}`}></div>
+        <section className={`left ${transitionType}`}>
+          <h2>{pokemon.name}</h2>
+          <div>
+            <img src={pokemon.imageUrlHiRes}  alt="card"/>
+          </div>
         </section>
-        <section className="right">
+        <section className={`right ${transitionType}`}>
           <article>
-            <h2>{this.state.pokemon.name}</h2>
+            <h2>{`HP ${pokemon.hp}`}</h2>
+            <section>
+              {
+                pokemon.attacks.map(attack => {
+                  return(
+                  <article>
+                    <section>
+                      <div>
+                        <h3>{attack.name}</h3>
+                      </div>
+                      <h3>{attack.damage}</h3>
+                    </section>
+                    <p>{attack.text}</p>
+                  </article>)
+                })
+              }
+            </section>
           </article>
         </section>
-        <div className="bottom"></div>
+        <div className={`bottom ${transitionType}`}></div>
       </section>
     )
-  }
-
-  async componentWillUnmount() {
-    this.props.cardInfoDisplay(false)
-    setTimeout(() => {
-      console.log("hello")
-    }, 1000);
   }
 }
 

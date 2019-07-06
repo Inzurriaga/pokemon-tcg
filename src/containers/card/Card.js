@@ -5,7 +5,7 @@ export default class Card extends Component {
   render() {
     return (
       <NavLink to={`/pokemon/${this.props.card.id}`} className="cards-link">
-          <img src={this.props.card.imageUrlHiRes} alt="cards"/>
+          <img src={this.props.card.imageUrl} alt="cards"/>
       </NavLink>
     )
   }
