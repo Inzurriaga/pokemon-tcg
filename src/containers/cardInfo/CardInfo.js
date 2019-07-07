@@ -6,7 +6,7 @@ export class CardInfo extends Component {
   constructor(){
     super();
     this.state = {
-      pokemon: {attacks: [], types: []},
+      pokemon: {attacks: [], types: [], retreatCost: [], resistances: [], weaknesses: []},
       transitionAnimation: false
     }
   }
@@ -54,8 +54,8 @@ export class CardInfo extends Component {
             <div className="pokemon-hp">
               <h2>{`HP ${pokemon.hp}`}</h2>
               {
-                pokemon.types.map(type => {
-                  return(<img src={require(`../../assets/${type}.png`)} alt={type} />)
+                pokemon.types.map((type, i) => {
+                  return(<img key={`type-${i}`}src={require(`../../assets/${type}.png`)} alt={type} />)
                 })
               }
             </div>
@@ -72,14 +72,14 @@ export class CardInfo extends Component {
                 ) : null
               }
               {
-                pokemon.attacks.map(attack => {
+                pokemon.attacks.map((attack, i) => {
                   return(
-                  <article className="attack">
+                  <article key={`attack-${i}`} className="attack">
                     <section className="attack-info">
                       <div className="attack-name-cost">
                         {
-                          attack.cost.map(cost => {
-                            return(<img src={require(`../../assets/${cost}.png`)} alt={cost} />)
+                          attack.cost.map((cost, i) => {
+                            return(<img key={`cost-${i}`} src={require(`../../assets/${cost}.png`)} alt={cost} />)
                           })
                         }
                         <h3>{attack.name}</h3>
@@ -90,6 +90,40 @@ export class CardInfo extends Component {
                   </article>)
                 })
               }
+            </section>
+            <section className="stats">
+                <article>
+                  <h3>Weakness</h3>
+                  {
+                    pokemon.weaknesses ? pokemon.weaknesses.map((weak, i) => {
+                      return(<div className="weaknesses">
+                        <img key={`type-${i}`}src={require(`../../assets/${weak.type}.png`)} alt={weak.type} />
+                        <p>{weak.value}</p>
+                      </div>
+                      )
+                    }) : null
+                  }
+                </article>
+                <article>
+                  <h3>Resistance</h3>
+                  {
+                    pokemon.resistances ? pokemon.resistances.map((resist, i) => {
+                      return(<div className="resistances">
+                        <img key={`type-${i}`}src={require(`../../assets/${resist.type}.png`)} alt={resist.type} />
+                        <p>{resist.value}</p>
+                      </div>
+                      )
+                    }) : null
+                  }
+                </article>
+                <article>
+                  <h3>Retreat Cost</h3>
+                  {
+                    pokemon.retreatCost ? pokemon.retreatCost.map((cost, i) => {
+                      return(<img key={`type-${i}`}src={require(`../../assets/${cost}.png`)} alt={cost} />)
+                    }) : null
+                  }
+                </article>
             </section>
           </article>
         </section>

@@ -131,6 +131,24 @@
     height: 100%;
     width: 80%;
   }
+  .stats {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #F2F2F2;
+    border-radius: 0 20px 20px 0;
+    width: 90%;
+    img {
+      width: 20px;
+      height: 20px;
+    }
+    .resistances, .weaknesses {
+      display: flex;
+      p {
+        margin: 0 0 0 20px;
+      }
+    }
+  }
 }
 
 
