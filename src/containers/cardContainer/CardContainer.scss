@@ -24,7 +24,13 @@
 }
 
 .card-info-display {
-  box-sizing: border-box;
-  overflow: hidden;
- top: 100px;
+  top: 100px;
+  animation: overflowContainer 0.5s linear forwards;
+}
+
+@keyframes overflowContainer {
+  to {
+    box-sizing: border-box;
+    overflow: hidden;
+  }
 }
