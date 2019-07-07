@@ -125,6 +125,20 @@ export class CardInfo extends Component {
                   }
                 </article>
             </section>
+            <section className="additional-info">
+              <article>
+                <h3>Illustrator:</h3>
+                <p>{pokemon.artist}</p>
+              </article>
+              <article>
+                <h3>Set:</h3>
+                <p>{pokemon.set}</p>
+              </article>
+              <article>
+                <h3>Pokedex #:</h3>
+                <p>{pokemon.nationalPokedexNumber}</p>
+              </article>
+            </section>
           </article>
         </section>
         <div className={`bottom ${transitionType}`}></div>

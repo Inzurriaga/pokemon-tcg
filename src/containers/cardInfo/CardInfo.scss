@@ -88,7 +88,7 @@
     background-color: #313131;
   }
   .transition-to-card {
-    animation: cardInfoSlide 0.4s ease forwards;
+    animation: cardInfoSlide 0.3s ease forwards;
   }
   .load-to-card {
     transform: translate(0)
@@ -116,19 +116,24 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
+    h3 {
+      margin: 0;
+    }
   }
   .attack-name-cost {
     display: flex;
     justify-content: space-between;
     align-items: center;
     img {
-      margin: 5px;
-      height: 40px;
-      width: 40px;
+      margin: 0 5px;
+      height: 35px;
+      width: 35px;
+    }
+    h3 {
+      margin: 0;
     }
   }
   .move-info {
-    height: 100%;
     width: 80%;
   }
   .stats {
@@ -148,6 +153,17 @@
         margin: 0 0 0 20px;
       }
     }
+  }
+  .additional-info {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 0 0 20px 0;
+    width: 85%;
+    height: 100%;
+    box-sizing: border-box;
+    margin-bottom: 32.5px
   }
 }
 
