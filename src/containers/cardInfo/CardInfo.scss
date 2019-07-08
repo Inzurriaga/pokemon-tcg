@@ -3,6 +3,7 @@
   overflow: hidden;
   position: fixed;
   display: flex;
+  z-index: 3;
   top: 0;
   left: 0;
   height: 100%;
@@ -49,7 +50,7 @@
     );
     .pokemon-name {
       background: #a4a4a4;
-      padding: 60px 40px 43px 40px;
+      padding: 60px 40px 41px 40px;
       h2 {
         margin: 0;
         color: #ffffff;
