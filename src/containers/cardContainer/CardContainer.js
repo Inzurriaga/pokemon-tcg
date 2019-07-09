@@ -18,7 +18,7 @@ export class CardContianer extends Component {
     let css;
     if( cards === "Home" ){
       display = (
-        <h1>hello im home</h1>
+        <h2>Search for your favorite Pokemon Card</h2>
       );
     }else if( cards.length === 0 ){
       display = (

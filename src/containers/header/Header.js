@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { setPokemonCards } from "../../actions";
 import { ReactComponent as Pokedex } from "../../assets/pokedex.svg";
+import { ReactComponent as Pokeball } from "../../assets/pokeball.svg";
 
 export class Header extends Component {
   constructor() {
@@ -27,10 +28,13 @@ export class Header extends Component {
   render() {
     return(
       <header>
-          <h1>Pokémon TCG</h1>
+          <div>
+            <Pokeball className="pokeball-title"/>
+            <h1>Pokémon TCG</h1>
+          </div>
           <form onSubmit={this.fetchUserInput}>
-            <input value={this.state.userInput} onChange={this.updateUserInput}></input>
-            <button onClick={this.fetchUserInput}><Pokedex class="pokedex"/></button>
+            <input value={this.state.userInput} onChange={this.updateUserInput} placeholder="Search Card Name..." spellCheck={false}></input>
+            <button onClick={this.fetchUserInput}><Pokedex className="pokedex"/></button>
           </form>
       </header>
     )

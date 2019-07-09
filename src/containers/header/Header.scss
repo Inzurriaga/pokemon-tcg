@@ -12,8 +12,17 @@ header {
   background-color: #616161;
   padding: 10px 70px;
   box-shadow: 2px 0px 10px 0px rgba($color: #000000, $alpha: 0.6);
-  h1 {
-    color: #ffffff;
+  div {
+    display: flex;
+    align-items: center;
+    h1 {
+      color: #ffffff;
+    }
+    .pokeball-title {
+      fill: #ffffff;
+      width: 80px;
+      height: 80px;
+    }
   }
   form {
     height: 60%;
