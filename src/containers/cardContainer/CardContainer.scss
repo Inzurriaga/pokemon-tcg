@@ -4,7 +4,6 @@
   min-height: 100%;
   padding: 150px 20px 0 20px;
   justify-content: space-around;
-  background-image: url("./assets/pokeball.svg");
   background-repeat: no-repeat;
   background-size: inherit; 
   background-attachment: fixed;
@@ -31,6 +30,14 @@
       }
     }
   }
+}
+
+.normal-background {
+  background-image: url("./assets/pokeball.svg");
+}
+
+.result-not-found-background {
+  background-image: url("./assets/sub.svg");
 }
 
 .card-info-display {

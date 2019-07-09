@@ -15,25 +15,29 @@ export class CardContianer extends Component {
   render() {
     const { cards } = this.props.pokemonCards
     let display;
-    let css;
+    let cardDisplayCss;
+    let ResultFound;
     if( cards === "Home" ){
+      ResultFound ="normal-background"
       display = (
         <h2>Search for your favorite Pokemon Card</h2>
       );
     }else if( cards.length === 0 ){
+      ResultFound = "result-not-found-background "
       display = (
-        <h1>result not found</h1>
+        <h2>Pokemon Card not found</h2>
       );
     }else{
+      ResultFound ="normal-background"
       display = this.renderPokemonCards();
     }
     if(this.props.cardInfoDisplay) {
-      css = "card-info-display"
+      cardDisplayCss = "card-info-display";
     }else {
-      css = ""
+      cardDisplayCss = "";
     }
     return(
-      <section style={{top: `${window.scrollY}px`}} className={`cardsContainer ${css}`}>
+      <section className={`cardsContainer ${cardDisplayCss} ${ResultFound} `}>
         {
           display
         }
