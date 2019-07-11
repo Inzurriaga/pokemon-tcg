@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { setPokemonCards } from "../../actions";
+import { setPokemonCards, loading } from "../../actions";
 import { ReactComponent as Pokedex } from "../../assets/pokedex.svg";
 import { ReactComponent as Pokeball } from "../../assets/pokeball.svg";
 
@@ -20,8 +20,10 @@ export class Header extends Component {
 
   fetchUserInput = async (e) => {
     e.preventDefault()
+    this.props.loading(true)
     const response = await fetch(`https://api.pokemontcg.io/v1/cards?name=${this.state.userInput}`);
     const pokemonCards = await response.json();
+    this.props.loading(false)
     this.props.setPokemonCards(pokemonCards);
   }  
 
@@ -34,7 +36,11 @@ export class Header extends Component {
           </div>
           <form onSubmit={this.fetchUserInput}>
             <input value={this.state.userInput} onChange={this.updateUserInput} placeholder="Search Card Name..." spellCheck={false}></input>
-            <button onClick={this.fetchUserInput}><Pokedex className="pokedex"/></button>
+            <button onClick={this.fetchUserInput}>
+            {
+              !this.props.loadingDisplay ? <Pokedex className="pokedex"/> : <Pokeball className="loading"/>
+            }
+            </button> 
           </form>
       </header>
     )
@@ -42,7 +48,12 @@ export class Header extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  setPokemonCards: cards => dispatch(setPokemonCards(cards))
+  setPokemonCards: cards => dispatch(setPokemonCards(cards)),
+  loading: bool => dispatch(loading(bool))
 })
 
-export default connect(null, mapDispatchToProps)(Header)
+const mapStateToProps = (state) => ({
+  loadingDisplay: state.loadingDisplay
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header)
