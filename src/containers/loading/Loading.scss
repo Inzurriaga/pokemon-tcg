@@ -1,0 +1,24 @@
+.loading {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  svg {
+    fill: #313131;
+    animation: loadingAnim 2s ease infinite;
+  }
+}
+
+@keyframes loadingAnim {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(720deg);
+  }
+  100% {
+    transform: rotate(1080deg);
+  }
+}

@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { cardInfoDisplay, loading } from "../../actions";
 import LeftCardInfo from "../leftCardInfo/LeftCardInfo";
 import RightCardInfo from "../rightCardInfo/RightCardInfo";
+import Loading from "../loading/Loading";
 
 export class CardInfo extends Component {
   constructor(){
@@ -43,8 +44,11 @@ export class CardInfo extends Component {
     return(
       <section className="card-info">
         <div className={`top ${transitionType}`}></div>
-        <LeftCardInfo pokemon={pokemon} transitionType={transitionType} />
-        <RightCardInfo pokemon={pokemon} transitionType={transitionType} />
+          <LeftCardInfo pokemon={pokemon} transitionType={transitionType} />
+          <RightCardInfo pokemon={pokemon} transitionType={transitionType} />
+          {
+            this.props.loadingDisplay ? <Loading /> : null
+          }
         <div className={`bottom ${transitionType}`}></div>
       </section>
     )
@@ -52,6 +56,7 @@ export class CardInfo extends Component {
 
   componentWillUnmount() {
     this.props.cardInfoDisplay(false)
+
   }
 }
 
@@ -60,4 +65,9 @@ const mapDispatchToProps = (dispatch) => ({
   loading: bool => dispatch(loading(bool))
 })
 
-export default connect(null, mapDispatchToProps)(CardInfo)
+const mapStateToProps = (state) => ({
+  loadingDisplay: state.loadingDisplay
+})
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(CardInfo)

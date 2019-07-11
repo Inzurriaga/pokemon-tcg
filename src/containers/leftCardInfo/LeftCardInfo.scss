@@ -1,0 +1,30 @@
+.left {
+  transform: translate(-60%);
+  height: 100%;
+  background: repeating-linear-gradient(
+  135deg,
+  #ffffff,
+  #ffffff 20px,
+  #f5f5f5 20px,
+  #f5f5f5 40px
+  );
+  .pokemon-name {
+    background: #a4a4a4;
+    padding: 60px 40px 41px 40px;
+    h2 {
+      margin: 0;
+      color: #ffffff;
+      font-size: 2em;
+    }
+  }
+  .image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70%;
+    img {
+      border-radius: 10px;
+      height: 90%;
+    }
+  }
+}
