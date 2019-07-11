@@ -10,15 +10,22 @@ export default class RightCardInfo extends Component {
 
   render() {
     const { pokemon, transitionType} = this.props;
+    console.log("hello world how are you", pokemon.ability)
     return (
       <section className={`right ${transitionType}`}>
           <article>
             <div className="pokemon-hp">
-              <h2>{`HP ${pokemon.hp}`}</h2>
               {
-                pokemon.types.map((type, i) => {
+                pokemon.hp ? (
+                  <h2>{`HP ${pokemon.hp}`}</h2>
+                ) : null
+              }
+              {
+                pokemon.types ? (
+                  pokemon.types.map((type, i) => {
                   return(<img key={`type-${i}`}src={require(`../../assets/${type}.png`)} alt={type} />)
                 })
+                ) : null
               }
             </div>
             <section className="move-info">
@@ -34,15 +41,18 @@ export default class RightCardInfo extends Component {
                 ) : null
               }
               {
-                pokemon.attacks.map((attack, i) => {
+                pokemon.attacks ? (
+                  pokemon.attacks.map((attack, i) => {
                   return(
                   <article key={`attack-${i}`} className="attack">
                     <section className="attack-info">
                       <div className="attack-name-cost">
                         {
-                          attack.cost.map((cost, i) => {
+                          attack.cost ? (
+                            attack.cost.map((cost, i) => {
                             return(<img key={`cost-${i}`} src={require(`../../assets/${cost}.png`)} alt={cost} />)
                           })
+                          ) : null
                         }
                         <h3>{attack.name}</h3>
                       </div>
@@ -51,6 +61,7 @@ export default class RightCardInfo extends Component {
                     <p>{attack.text}</p>
                   </article>)
                 })
+                ) : null
               }
             </section>
             <section className="stats">
@@ -63,7 +74,7 @@ export default class RightCardInfo extends Component {
                         <p>{weak.value}</p>
                       </div>
                       )
-                    }) : null
+                    }) : "N/A"
                   }
                 </article>
                 <article>
@@ -75,7 +86,7 @@ export default class RightCardInfo extends Component {
                         <p>{resist.value}</p>
                       </div>
                       )
-                    }) : null
+                    }) : "N/A"
                   }
                 </article>
                 <article>
@@ -83,7 +94,7 @@ export default class RightCardInfo extends Component {
                   {
                     pokemon.retreatCost ? pokemon.retreatCost.map((cost, i) => {
                       return(<img key={`type-${i}`}src={require(`../../assets/${cost}.png`)} alt={cost} />)
-                    }) : null
+                    }) : "N/A"
                   }
                 </article>
             </section>
