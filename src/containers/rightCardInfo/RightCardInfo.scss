@@ -1,5 +1,6 @@
 .right {
   transform: translate(60%);
+  width: 50%;
   background: repeating-linear-gradient(
   135deg,
   #ffffff,
@@ -69,6 +70,7 @@
   .stats {
     display: flex;
     justify-content: space-between;
+    box-sizing: border-box;
     padding: 10px;
     background-color: #F2F2F2;
     border-radius: 0 20px 20px 0;
@@ -94,5 +96,28 @@
     height: 100%;
     box-sizing: border-box;
     margin-bottom: 32.5px
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .right {
+    grid-area: rightSide;
+    box-sizing: border-box; 
+    width: 100%;
+    .pokemon-hp {
+      display: none;
+    }
+    .move-info {
+      width: 100%;
+    }
+    .stats {
+      margin-top: 20px;
+      width: 100%;
+    }
+    .additional-info {
+      margin-top: 20px;
+      margin-bottom: 0px;
+      width: 100%;
+    }
   }
 }

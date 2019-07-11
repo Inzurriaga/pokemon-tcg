@@ -1,13 +1,14 @@
 .cardsContainer {
   display: flex;
   flex-wrap: wrap;
-  min-height: 100%;
   padding: 150px 20px 0 20px;
   justify-content: space-around;
   background-repeat: no-repeat;
+  background-color: rgba($color: #000000, $alpha: 0.0);
   background-size: inherit; 
   background-attachment: fixed;
   background-color: none;
+  min-height: 100%;
   background-position: center;
   text-align: center;
   h2 {
@@ -47,6 +48,7 @@
 
 @keyframes overflowContainer {
   to {
+    height: 100%;
     box-sizing: border-box;
     overflow: hidden;
   }

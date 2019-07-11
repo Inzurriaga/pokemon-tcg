@@ -29,7 +29,7 @@
     width: 100%;
     position: absolute;
     z-index: 3;
-    bottom: 0px;
+    bottom: 0;
     background-color: #313131;
   }
   .transition-to-card {
@@ -44,5 +44,22 @@
 @keyframes cardInfoSlide {
   to {
     transform: translate(0)
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .card-info {
+    overflow: auto;
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+    "leftSide"
+    "rightSide";
+    section {
+      width: 100%;
+    }
+    .bottom {
+      position: relative;
+    }
   }
 }
