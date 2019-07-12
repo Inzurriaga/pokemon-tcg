@@ -12,11 +12,12 @@
   .pokemon-name {
     background: #a4a4a4;
     box-sizing: border-box;
-    padding: 60px 40px 10px 40px;
+    height: 139px;
+    padding: 90px 40px 10px 40px;
     h2 {
       margin: 0;
       color: #ffffff;
-      font-size: 2em;
+      font-size: 32px;
     }
   }
   .pokemon-hp-mobile {
@@ -44,45 +45,8 @@
       text-align: center;
       padding: 80px 40px 20px 40px;
       img {
-        height: 50px;
-        width: 50px;
-      }
-    }
-    .pokemon-hp-mobile {
-      display: flex;
-      align-items: center;
-      box-sizing: border-box;
-      justify-content: center;
-      img {
-        margin-left: 10px;
-      }
-    }
-    .image-container {
-      display: flex;
-      box-sizing: border-box;
-      justify-content: center;
-      align-items: center;
-      height: 82%;
-      width: 100%;
-      padding: 10px;
-      img {
-        border-radius: 10px;
-        height: auto;
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 800px) {
-  .left {
-    grid-area: leftSide;
-    width: 100%;
-    .pokemon-name {
-      text-align: center;
-      padding: 80px 40px 20px 40px;
-      img {
-        height: 50px;
-        width: 50px;
+        height: 40px;
+        width: 40px;
       }
     }
     .pokemon-hp-mobile {
