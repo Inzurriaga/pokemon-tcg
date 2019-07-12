@@ -51,7 +51,7 @@
   .card-info {
     overflow: auto;
     display: grid;
-    grid-template-rows: auto auto;
+    grid-template-rows: 1fr 1fr;
     grid-template-areas: 
     "leftSide"
     "rightSide";
