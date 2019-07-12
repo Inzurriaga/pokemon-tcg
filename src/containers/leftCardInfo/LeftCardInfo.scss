@@ -1,6 +1,7 @@
 .left {
   transform: translate(-60%);
   height: 100%;
+  width: 100%;
   background: repeating-linear-gradient(
   135deg,
   #ffffff,
@@ -10,7 +11,8 @@
   );
   .pokemon-name {
     background: #a4a4a4;
-    padding: 60px 40px 41px 40px;
+    box-sizing: border-box;
+    padding: 60px 40px 10px 40px;
     h2 {
       margin: 0;
       color: #ffffff;
@@ -26,6 +28,7 @@
     justify-content: center;
     align-items: center;
     height: 70%;
+    width: 100%;
     img {
       border-radius: 10px;
       height: 90%;
@@ -39,14 +42,70 @@
     width: 100%;
     .pokemon-name {
       text-align: center;
-      height: 10%;
       padding: 80px 40px 20px 40px;
+      img {
+        height: 50px;
+        width: 50px;
+      }
     }
     .pokemon-hp-mobile {
       display: flex;
+      align-items: center;
+      box-sizing: border-box;
       justify-content: center;
       img {
         margin-left: 10px;
+      }
+    }
+    .image-container {
+      display: flex;
+      box-sizing: border-box;
+      justify-content: center;
+      align-items: center;
+      height: 82%;
+      width: 100%;
+      padding: 10px;
+      img {
+        border-radius: 10px;
+        height: auto;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .left {
+    grid-area: leftSide;
+    width: 100%;
+    .pokemon-name {
+      text-align: center;
+      padding: 80px 40px 20px 40px;
+      img {
+        height: 50px;
+        width: 50px;
+      }
+    }
+    .pokemon-hp-mobile {
+      display: flex;
+      align-content: none;
+      box-sizing: border-box;
+      justify-content: center;
+      img {
+        margin-left: 10px;
+      }
+    }
+    .image-container {
+      display: flex;
+      box-sizing: border-box;
+      justify-content: center;
+      align-items: baseline;
+      height: 82%;
+      width: 100%;
+      padding: 10px;
+      img {
+        width: 77%;
+        border-radius: 10px;
+        height: auto;
       }
     }
   }
