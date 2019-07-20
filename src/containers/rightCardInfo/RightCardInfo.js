@@ -11,7 +11,6 @@ export class RightCardInfo extends Component {
 
   render() {
     const { pokemon, transitionType} = this.props;
-    console.log("hello world how are you", pokemon.ability)
     return (
       <section className={`right ${transitionType}`}>
         {

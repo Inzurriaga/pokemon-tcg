@@ -38,7 +38,6 @@ export class CardInfo extends Component {
   }
 
   render() {
-    console.log(this.state.pokemon);
     const { pokemon, transitionAnimation} = this.state;
     const transitionType = transitionAnimation ? "transition-to-card" : "load-to-card";
     return(

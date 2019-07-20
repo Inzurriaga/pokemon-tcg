@@ -15,7 +15,6 @@ export class App extends Component {
             if(this.props.pokemonCards.cards !== "Home"){
               pokemon = this.props.pokemonCards.cards.find(pokemon => pokemon.id === match.params.id);
             } else {
-              console.log("hello im not found")
               pokemon = match.params.id;
             }
             return (<CardInfo pokemon={pokemon} />)
